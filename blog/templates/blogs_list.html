@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Narmak WebBlog</title>
+</head>
+<body>
+
+
+    <h1>Welcom to the narmak weblog</h1>
+    <p>we put the mft narmak news and articles in this site.</p>
+
+    {% for blog in blogs %}
+
+        <a href="{% url 'blog_detail' blog.pk %}"><h2>{{ blog.title }}</h2></a>
+        <small>{{ blog.create_date }}</small>
+
+
+    {% endfor %}
+
+
+</body>
+</html>
