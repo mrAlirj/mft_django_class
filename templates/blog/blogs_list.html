@@ -1,0 +1,19 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+{% for blog in blogs %}
+    <div class="card p-2" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ blog.title }}</h5>
+            <p class="card-text">{{ blog.create_date }}</p>
+            <a href="{% url 'blog_detail' blog.pk %}" class="btn btn-primary">دیدن مقاله</a>
+        </div>
+    </div>
+
+    {% endfor %}
+{% endblock %}
+
+
+
+{% block title %} mamad gholi {% endblock %}
