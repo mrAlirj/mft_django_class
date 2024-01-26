@@ -13,7 +13,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">اخبار نارمک</a>
+                <a class="navbar-brand" href="{% url 'blogs_list' %}">اخبار نارمک</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">خانه</a>
+                            <a class="nav-link active" aria-current="page" href="{% url 'blogs_list' %}">خانه</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -30,7 +30,7 @@
                                 کاربری
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">ثبت نام</a></li>
+                                <li><a class="dropdown-item" href="{% url 'register_user' %}">ثبت نام</a></li>
                                 <li><a class="dropdown-item" href="#">ورود به سایت</a></li>
                             </ul>
                         </li>

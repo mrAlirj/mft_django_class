@@ -9,6 +9,7 @@ class Blog(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
+    is_publish = models.BooleanField(default=False)
 
     def __str__(self):
         return f"blog {self.title} created in {self.create_date}"
