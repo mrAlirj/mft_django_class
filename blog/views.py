@@ -1,16 +1,26 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from accounts.models import User
 from .models import Blog
 from .forms import BlogForm
 
-
+# @login_required
 # def blogs_list(request):
 #     blogs = Blog.objects.all().order_by('-create_date')
 #     return render(request, 'blog/blogs_list.html', context={"blogs": blogs})
 
-class BlogsList(ListView):
+
+
+# def blogs_list(request):
+#     blogs = Blog.objects.all().order_by('-create_date')
+#     if request.user.is_authenticated:
+#         return render(request, 'blog/blogs_list.html', context={"blogs": blogs})
+#     return render(request, 'blog/blogs_list.html')
+
+class BlogsList(LoginRequiredMixin, ListView):
     queryset = Blog.objects.filter(is_publish=True).order_by('-create_date')
     template_name = 'blog/blogs_list.html'
     context_object_name = 'blogs'
