@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="POST" novalidate>
+	{% csrf_token %}
+	<h2>ورود به سایت</h2>
+	{{form|crispy}}
+	<input type="submit" value="ورود" />
+</form>
+
+{% endblock content%}

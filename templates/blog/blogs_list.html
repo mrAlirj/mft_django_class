@@ -2,6 +2,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
+
+<a class="btn btn-info m-2" role="button" href="{% url 'create_blog_form' %}">افزودن اخبار جدید</a>
 {% for blog in blogs %}
     <div class="card p-2" style="width: 18rem;">
         <div class="card-body">

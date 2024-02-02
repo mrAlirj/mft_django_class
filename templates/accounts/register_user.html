@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block title %}ثبت نام کاربر جدید{% endblock %}
 
 {% block content %}
     <form method="POST" class="form-group">
 	{% csrf_token %}
-	{{ form }}
+	{{ form|crispy }}
 	<button type="submit" class="btn btn-success">ثبت نام</button>
     </form>
 {% endblock %}
