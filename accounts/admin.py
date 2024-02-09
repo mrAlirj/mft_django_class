@@ -4,7 +4,7 @@ from .models import User
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'email', 'last_login', 'is_staff', 'is_active', 'is_superuser')
+    list_display = ('username', 'email', 'last_login', 'is_staff', 'is_active', 'is_writer', 'is_superuser')
     list_editable = ('is_staff', 'is_active', 'is_superuser')
     list_display_links = ('username', 'email')
 

@@ -1,9 +1,79 @@
 {% extends 'base.html' %}
+{% load humanize %}
 
 {% block content %}
-    <h1>{{ blog.title }}</h1>
-    <div dir="rtl"><p>{{ blog.body }}</p></div>
-    <small>{{ blog.author }}</small>
-    <small>{{ blog.create_date }}</small>
-    <small>{{ blog.update_date }}</small>
+<h1>{{ blog.title }}</h1>
+<div dir="rtl">
+    <p>{{ blog.body }}</p>
+</div>
+<small>{{ blog.author }}</small>
+<small>{{ blog.create_date }}</small>
+<small>{{ blog.update_date }}</small>
+
+
+
+
+
+<section class="gradient-custom">
+    <div class="container my-5 py-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-10 col-xl-8">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <h4 class="text-center mb-4 pb-2">نظرات</h4>
+
+                        <div class="row">
+                            <div class="col">
+
+
+                                {% for blog_comment in comments %}
+                                <div class="d-flex flex-start">
+                                    <div class="flex-grow-1 flex-shrink-1">
+                                        <div>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="mb-1">
+                                                    {{ blog_comment.user }} <span class="small">- {{ blog_comment.create_date|naturalday }} - {{ blog_comment.create_date|naturaltime }}</span>
+                                                </p>
+                                                <a href="#!"><i class="fas fa-reply fa-xs"></i><span class="small">
+                                                        پاسخ</span></a>
+                                            </div>
+                                            <p class="mb-0">
+                                                {{ blog_comment.comment }}
+                                            </p>
+                                        </div>
+
+                                        {% for reply in replies %}
+                                        <div class="d-flex flex-start mt-4">
+                                            
+                                            <div class="me-4 flex-grow-1 flex-shrink-1">
+                                                <div>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="mb-1">
+                                                            {{ reply.user }} <span class="small">- {{ blog_comment.create_date|naturalday }} - {{ blog_comment.create_date|naturaltime }}</span>
+                                                        </p>
+                                                    </div>
+                                                    <p class="small mb-0">
+                                                        {{ reply.comment}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {% endfor %}
+
+
+
+                                    </div>
+
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
